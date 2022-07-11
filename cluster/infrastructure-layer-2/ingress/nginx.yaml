@@ -42,8 +42,6 @@ spec:
         type: NodePort
         targetPorts:
           http: http
-      podAnnotations:
-        linkerd.io/inject: enabled
       nodeSelector:
         kubernetes.io/os: linux
         ingress-ready: "true"

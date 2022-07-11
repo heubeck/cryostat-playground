@@ -1,0 +1,26 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: cryostat-helm
+  namespace: cryostat
+spec:
+  interval: 1m0s
+  ref:
+    branch: main
+  url: https://github.com/cryostatio/cryostat-helm.git
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: cryostat
+  namespace: cryostat
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: ./cryostat
+      sourceRef:
+        kind: GitRepository
+        name: cryostat-helm
+        namespace: cryostat

@@ -28,8 +28,5 @@ autoscaling:
   maxReplicas: 2
   targetCPUUtilizationPercentage: 80
 
-canary:
-  enabled: false
-
 monitoring:
   namespace: monitoring
