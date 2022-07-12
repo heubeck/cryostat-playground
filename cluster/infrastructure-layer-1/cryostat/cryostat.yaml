@@ -24,3 +24,12 @@ spec:
         kind: GitRepository
         name: cryostat-helm
         namespace: cryostat
+  values:
+    core:
+      ingress:
+        enabled: true
+        hosts:
+          - host: localhost
+            paths:
+              - path: /
+                pathType: Prefix
